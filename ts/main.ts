@@ -7,18 +7,15 @@ class MovieList{
 
 }
 
-// test code
-/*
-let myMovie = new MovieList();
-myMovie.title = "Raya And The Last Dragon";
-myMovie.genre = "Action";
-myMovie.addMovie = true;
-*/
-
 // create a button click even handler
 window.onload = function(){
     let buyButton = <HTMLElement>document.querySelector("input[type=button]");
     buyButton.onclick = buyMovie;
+}
+
+function clearAllErrors(){
+    let errorSummary = getById("validation-summary");
+    errorSummary.innerText = "";
 }
 
 /**
@@ -27,6 +24,7 @@ window.onload = function(){
  */
 function buyMovie(){
     console.log("Buy button was clicked.");
+    clearAllErrors();
     // check if everything is valid.
     if(isAllDataValid()){
         // get movie off the form
@@ -89,9 +87,40 @@ function displayMovie(myMovie:MovieList):void{
     displayDiv.appendChild(movieInfo);
 }
 
+function getInputById(id:string):HTMLInputElement{
+    return <HTMLInputElement>document.getElementById(id);
+}
 // add validation code
 function isAllDataValid(){
-    return true;
+    let isValid = true;
+
+    let title = getInputById("title").value;
+    if(title == ""){
+        isValid = false;
+        addErrorMessage("Title is required!");
+    }
+
+    let price = getInputById("price").value;
+    let priceValue = parseFloat(price);
+    if(price == "" || isNaN(priceValue)){
+        isValid = false;
+       addErrorMessage("Price is required and must be a number.");
+    }
+
+    let genre = (<HTMLOptionElement>getById("genre")).value;
+    if(genre == ""){
+        isValid = false;
+        addErrorMessage("Please pick a genre.")
+    }
+    return isValid;
+}
+
+function addErrorMessage(errorMessage:string) {
+    let errorSummary = getById("validation-summary");
+    let errorItem = document.createElement("li");
+    errorItem.innerText = errorMessage;
+
+    errorSummary.appendChild(errorItem);
 }
 
 function getById(id:string){

@@ -7,8 +7,13 @@ window.onload = function () {
     var buyButton = document.querySelector("input[type=button]");
     buyButton.onclick = buyMovie;
 };
+function clearAllErrors() {
+    var errorSummary = getById("validation-summary");
+    errorSummary.innerText = "";
+}
 function buyMovie() {
     console.log("Buy button was clicked.");
+    clearAllErrors();
     if (isAllDataValid()) {
         var movie = purchaseMovie();
         displayMovie(movie);
@@ -43,8 +48,34 @@ function displayMovie(myMovie) {
     displayDiv.appendChild(movieHeading);
     displayDiv.appendChild(movieInfo);
 }
+function getInputById(id) {
+    return document.getElementById(id);
+}
 function isAllDataValid() {
-    return true;
+    var isValid = true;
+    var title = getInputById("title").value;
+    if (title == "") {
+        isValid = false;
+        addErrorMessage("Title is required!");
+    }
+    var price = getInputById("price").value;
+    var priceValue = parseFloat(price);
+    if (price == "" || isNaN(priceValue)) {
+        isValid = false;
+        addErrorMessage("Price is required and must be a number.");
+    }
+    var genre = getById("genre").value;
+    if (genre == "") {
+        isValid = false;
+        addErrorMessage("Please pick a genre.");
+    }
+    return isValid;
+}
+function addErrorMessage(errorMessage) {
+    var errorSummary = getById("validation-summary");
+    var errorItem = document.createElement("li");
+    errorItem.innerText = errorMessage;
+    errorSummary.appendChild(errorItem);
 }
 function getById(id) {
     return document.getElementById(id);
