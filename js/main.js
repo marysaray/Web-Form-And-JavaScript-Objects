@@ -28,6 +28,20 @@ function purchaseMovie() {
     return movie;
 }
 function displayMovie(myMovie) {
+    var displayDiv = getById("display");
+    var movieHeading = document.createElement("h2");
+    movieHeading.innerText = myMovie.title;
+    var movieInfo = document.createElement("p");
+    var movieResult = "";
+    if (myMovie.isAddMovie) {
+        movieResult = "Movie was successfully purchased.";
+    }
+    else {
+        movieResult = "Please check the box to purchase the movie.";
+    }
+    movieInfo.innerText = "Description:  " + myMovie.title + " \n                           Genre: " + myMovie.genre + "\n                           It costs: " + myMovie.price + "\n                           " + movieResult;
+    displayDiv.appendChild(movieHeading);
+    displayDiv.appendChild(movieInfo);
 }
 function isAllDataValid() {
     return true;

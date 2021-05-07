@@ -60,7 +60,33 @@ function purchaseMovie():MovieList{
 }
 
 function displayMovie(myMovie:MovieList):void{
-    //TODO: Display video game below the form.
+    // Display video game below the form.
+    let displayDiv = getById("display");
+    // Create <h2> with movie title.
+    let movieHeading = document.createElement("h2");
+    movieHeading.innerText = myMovie.title
+
+    // Create paragrah with movie details
+    let movieInfo = document.createElement("p");
+    let movieResult = "";
+    if(myMovie.isAddMovie){
+        movieResult = "Movie was successfully purchased.";
+    }
+    else{
+        movieResult = "Please check the box to purchase the movie.";
+    }
+    // movieInfo.innerText = myMovie.title + ". \n Genre: " 
+    //                     + myMovie.genre + ". \n It costs: " 
+    //                     + myMovie.price + ". \n It has been purchased.";
+    movieInfo.innerText = `Description:  ${myMovie.title} 
+                           Genre: ${myMovie.genre}
+                           It costs: ${myMovie.price}
+                           ${movieResult}`;
+
+    // Add <h2> int the <div id="display">
+    displayDiv.appendChild(movieHeading);
+    // Add <p> movie details
+    displayDiv.appendChild(movieInfo);
 }
 
 // add validation code
