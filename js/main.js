@@ -67,13 +67,20 @@ function isAllDataValid() {
     var genre = getById("genre").value;
     if (genre == "") {
         isValid = false;
-        addErrorMessage("Please pick a genre.");
+        addErrorMsgWithCustomClass("Please pick a genre.", "genre-error");
     }
     return isValid;
 }
 function addErrorMessage(errorMessage) {
     var errorSummary = getById("validation-summary");
     var errorItem = document.createElement("li");
+    errorItem.innerText = errorMessage;
+    errorSummary.appendChild(errorItem);
+}
+function addErrorMsgWithCustomClass(errorMessage, cssClass) {
+    var errorSummary = getById("validation-summary");
+    var errorItem = document.createElement("li");
+    errorItem.classList.add(cssClass);
     errorItem.innerText = errorMessage;
     errorSummary.appendChild(errorItem);
 }

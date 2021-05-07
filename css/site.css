@@ -23,6 +23,15 @@ body{
     margin-right: 5%;
 }
 
+#validation-summary{
+    color: red;
+    list-style-type: square;
+}
+
+.genre-error{
+    font-style: italic;
+}
+
 /* screen size display for different devices. */
 @media only screen and (max-width: 475px){
     /* for smaller screens */

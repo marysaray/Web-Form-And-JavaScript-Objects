@@ -110,7 +110,7 @@ function isAllDataValid(){
     let genre = (<HTMLOptionElement>getById("genre")).value;
     if(genre == ""){
         isValid = false;
-        addErrorMessage("Please pick a genre.")
+        addErrorMsgWithCustomClass("Please pick a genre.", "genre-error")
     }
     return isValid;
 }
@@ -119,7 +119,14 @@ function addErrorMessage(errorMessage:string) {
     let errorSummary = getById("validation-summary");
     let errorItem = document.createElement("li");
     errorItem.innerText = errorMessage;
+    errorSummary.appendChild(errorItem);
+}
 
+function addErrorMsgWithCustomClass(errorMessage:string, cssClass:string){
+    let errorSummary = getById("validation-summary");
+    let errorItem = document.createElement("li");
+    errorItem.classList.add(cssClass);
+    errorItem.innerText = errorMessage;
     errorSummary.appendChild(errorItem);
 }
 
