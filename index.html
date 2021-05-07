@@ -7,6 +7,36 @@
     <title>Add Product Form</title>
 </head>
 <body>
-    
+    <h1>Motion Picture</h1>
+    <div id="validation-summary"></div>
+        <p>Errors go here...</p>
+
+    <form>
+        
+        <label for="title">Title: </label>
+        <input id="title" type="text">
+        <br>
+
+        <label for="price">Price: </label>
+        <input id="price" type="text">
+        <br>
+
+        <label for="genres">Genres: </label>
+        <select id="genres">
+            <option>Please choose a genre:</option>
+            <option>Action</option>
+            <option>Comedy</option>
+            <option>Romance</option>
+            <option>Documentary</option>
+        </select>
+        <br>
+
+        <input type="checkbox" id="add-movie">
+        <label for="add-movie">Add Movie</label>
+        <br>
+
+        <input type="button" value="Buy">
+       
+    </form>
 </body>
 </html>
