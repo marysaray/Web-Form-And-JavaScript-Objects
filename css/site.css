@@ -1,0 +1,36 @@
+input[type=text]{
+    padding: .3em;
+}
+
+label{
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+}
+
+input[type=checkbox], input[type=button]{
+    margin-left: 50%;
+}
+/* spaces between text boxes. */
+input[type=text]{
+    margin-bottom: 1em;
+}
+/* background and text color */
+body{
+    background-color: black;
+    color: whitesmoke;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* screen size display for different devices. */
+@media only screen and (max-width: 475px){
+    /* for smaller screens */
+    form > label{
+        text-align: left;
+        width: 100%;
+    }
+    form > button{
+        margin-left: 0%;
+    }
+}
