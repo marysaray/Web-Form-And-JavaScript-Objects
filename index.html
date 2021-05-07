@@ -5,38 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product Form</title>
+    <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
     <h1>Motion Picture</h1>
     <div id="validation-summary"></div>
         <p>Errors go here...</p>
-
     <form>
-        
-        <label for="title">Title: </label>
-        <input id="title" type="text">
-        <br>
+        <fieldset>
+            <legend>Information:</legend>
+            <label for="title">Title: </label>
+            <input id="title" type="text">
+            <br>
 
-        <label for="price">Price: </label>
-        <input id="price" type="text">
-        <br>
+            <label for="price">Price: </label>
+            <input id="price" type="text">
+            <br>
 
-        <label for="genres">Genres: </label>
-        <select id="genres">
-            <option>Please choose a genre:</option>
-            <option>Action</option>
-            <option>Comedy</option>
-            <option>Romance</option>
-            <option>Documentary</option>
-        </select>
-        <br>
+            <label for="genres">Genres: </label>
+            <select id="genres">
+                <option>Please choose a genre:</option>
+                <option>Action</option>
+                <option>Comedy</option>
+                <option>Romance</option>
+                <option>Documentary</option>
+            </select>
+            <br>
 
-        <input type="checkbox" id="add-movie">
-        <label for="add-movie">Add Movie</label>
-        <br>
+            <input type="checkbox" id="add-movie">
+            <label for="add-movie">Add Movie</label>
+            <br>
 
-        <input type="button" value="Buy">
-       
+            <input type="button" value="Buy">
+        </fieldset>
     </form>
 </body>
 </html>
