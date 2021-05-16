@@ -39,7 +39,7 @@ function purchaseMovie():MovieList{
     // create movie
     let movie = new MovieList();
 
-    // populate with dat from the form
+    // populate data from the form
     let titleInput = <HTMLInputElement>getById("title");
     movie.title = titleInput.value;
 
@@ -52,13 +52,13 @@ function purchaseMovie():MovieList{
     let addMovie = <HTMLInputElement>getById("add-movie");
     movie.isAddMovie = addMovie.checked;
 
-    // retrun movie
+    // return movie
     console.log(movie);
     return movie;
 }
 
 function displayMovie(myMovie:MovieList):void{
-    // Display video game below the form.
+    // Display movie below the form.
     let displayDiv = getById("display");
     // Create <h2> with movie title.
     let movieHeading = document.createElement("h2");
